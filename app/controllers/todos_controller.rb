@@ -17,7 +17,12 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
-    redirect_to root_path
+
+    if htmx?
+      head :ok  # TODO: add flash message
+    else
+      redirect_to root_path
+    end
   end
 
   private

@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     }
   end
   helper_method :next_color
+
+  def htmx?
+    request.headers['Hx-Request'].present?
+  end
 end

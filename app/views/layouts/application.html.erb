@@ -13,7 +13,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="background-color:<%=next_color%>">
+  <body style="background-color:<%=next_color%>" hx-headers='{"X-CSRF-Token": "<%= form_authenticity_token %>"}'>
     <main class="container p-10 mx-auto" style="background-color:<%=next_color%>">
       <%= yield %>
     </main>

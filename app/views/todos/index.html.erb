@@ -27,6 +27,13 @@
           </td>
           <td class="px-3 py-4 text-sm font-normal text-left text-red-600 underline break-words bg-light">
             <%= button_to "Delete", todo_path(todo), method: :delete %>
+            <button class="bg-red-50"
+                    hx-delete="<%=todo_path(todo)%>"
+                    hx-target="closest tr"
+                    hx-swap="outerHTML swap:1s"
+                    hx-confirm="Are you sure?">
+              Delete w/htmx
+            </button>
           </td>
         </tr>
       <% end %>
