@@ -1,7 +1,8 @@
 class TodosController < ApplicationController
+  before_action :fetch_todos
+
   def index
-    @todos = Todo.all  
-    @todo = Todo.new 
+    @todo = Todo.new
   end
 
   def create
@@ -17,5 +18,11 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
     @todo.destroy
     redirect_to root_path
+  end
+
+  private
+
+  def fetch_todos
+    @todos = Todo.all
   end
 end
