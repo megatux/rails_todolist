@@ -1,26 +1,6 @@
 <h1 class="text-2xl">Todo List</h1>
 
-<%= form_with(model: @todo, class: "my-10") do |form| %>
-  <div class="my-5">
-    <%= form.label :description %>
-
-    <% if @todo.errors.any? %>
-      <div class="bg-red-100 p-2">
-        <ul>
-        <% @todo.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <%= form.text_field :description, placeholder: "new todo", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-2/4" %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-  </div>
-<% end %>
+<%= render "new"%>
 
 <table class="w-3/5 mt-10 border-separate table-auto text-slate-500">
     <thead>
